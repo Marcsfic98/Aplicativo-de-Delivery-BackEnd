@@ -18,6 +18,10 @@ import { EstabelecimentoModule } from './estabelecimento/estabelecimento.module'
     }),
     EstabelecimentoModule,
   ],
+import { AuthModule } from './auth/auth.module';
+
+@Module({
+  imports: [AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
