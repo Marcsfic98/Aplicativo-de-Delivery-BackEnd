@@ -1,5 +1,5 @@
 <p align="center">
-<img alig src="https://raw.githubusercontent.com/Grupo-02-Turma-JavaScript-12/Aplicativo-de-Carona-Compartilhada-BackEnd/refs/heads/main/src/assets/logo_meleva.png" width="300" alt="MeLeva Logo" />
+<img alig src="https://raw.githubusercontent.com/Grupo-02-Turma-JavaScript-12/Aplicativo-de-Delivery-BackEnd/refs/heads/main/src/assets/nutrigo%20.png" width="300" alt="MeLeva Logo" />
 </p>
 
 # NutriGo - Saúde que chega até você
@@ -83,7 +83,6 @@ Serviço responsável por gerenciar as operações relacionadas aos estabelecime
 ### Entidade Usuários
 
 <table border="1">
-  <caption>tb_usuarios</caption>
   <tr>
     <th>Coluna</th>
     <th>Tipo</th>
@@ -120,8 +119,7 @@ Serviço responsável por gerenciar as operações relacionadas aos estabelecime
 
 ### Entidade Pedidos
 
-<table border="1">
-  <caption>tb_pedidos</caption>
+<table border="1"> 
   <tr>
     <th>Coluna</th>
     <th>Tipo</th>
@@ -164,8 +162,7 @@ Serviço responsável por gerenciar as operações relacionadas aos estabelecime
 ### Entidade Estabelecimento
 
 <table border="1">
-  <caption>tb_estabelecimentos</caption>
-  <tr>
+    <tr>
     <th>Coluna</th>
     <th>Tipo</th>
     <th>Restrições</th>
@@ -221,7 +218,7 @@ Testes realizados na Entidade Usuário
 ---
 
 ```
-Testes realizados na Entidade Carona
+Testes realizados na Entidade Pedidos
 ```
 
 #### Consultar Caronas
@@ -251,7 +248,7 @@ Testes realizados na Entidade Carona
 ---
 
 ```
-Testes realizados na Entidade Reserva
+Testes realizados na Entidade Estabelecimento
 ```
 
 #### Consultar todas as Reservas
