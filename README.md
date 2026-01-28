@@ -47,8 +47,6 @@ Serviço responsável por gerenciar as operações relacionadas aos pedidos.
 - **update(pedido)** → Atualiza um pedido existente (com validação prévia).  
 - **delete(id)** → Remove um pedido pelo ID.  
   - Retorna erro `404 - Pedido não encontrado` caso não exista.  
-- **findByStatus(status)** → Pesquisa pedidos pelo status, com suporte a filtros (`ILike`).  
-  - Inclui relações com usuário e estabelecimento.  
 
 ---
 
