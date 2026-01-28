@@ -53,8 +53,15 @@ export class UsuarioController {
   @UseGuards(JwtAuthGuard)
   @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
-  async update(@Body() usuario: Usuario): Promise<Usuario> {
-    return this.usuarioService.update(usuario);
+  async update(
+    @Body() usuario: Usuario,
+  ): Promise<{ mensagem: string; usuario: Usuario }> {
+    const usuarioAtualizado = await this.usuarioService.update(usuario);
+
+    return {
+      mensagem: 'usuario atualizado',
+      usuario: usuarioAtualizado,
+    };
   }
 
   @Delete('/:id')
