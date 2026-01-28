@@ -8,6 +8,7 @@ import { jwtConstants } from './constants/constants';
 import { AuthController } from './controllers/auth.controller';
 import { AuthService } from './services/auth.service';
 import { LocalStrategy } from './strategy/local.strategy';
+import { UsuarioModule } from '../Usuario/usuario.module';
 
 @Module({
   imports: [
