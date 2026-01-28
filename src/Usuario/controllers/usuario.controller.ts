@@ -18,7 +18,7 @@ import { UsuarioService } from '../services/usuario.service';
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
-  @Get('usuario/:usuario')
+  @Get('usuarios')
   @HttpCode(HttpStatus.OK)
   findByUsuario(@Param('usuario') usuario: string): Promise<Usuario | null> {
     return this.usuarioService.findByUsuario(usuario);

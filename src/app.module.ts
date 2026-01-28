@@ -3,7 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { EstabelecimentoModule } from './estabelecimento/estabelecimento.module';
+import { EstabelecimentoModule } from './Estabelecimento/estabelecimento.module';
+import { UsuarioModule } from './Usuario/usuario.module';
+import { PedidoModule } from './Pedido/pedido.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { EstabelecimentoModule } from './estabelecimento/estabelecimento.module'
       autoLoadEntities: true,
       synchronize: true,
     }),
+    UsuarioModule,
+    PedidoModule,
     EstabelecimentoModule,
     AuthModule,
   ],

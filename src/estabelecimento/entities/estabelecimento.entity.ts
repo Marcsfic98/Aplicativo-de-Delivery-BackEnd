@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { IsNotEmpty } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Pedidos } from '../../pedidos/entities/pedido.entity';
+import { Pedido } from '../../Pedido/entities/pedido.entity';
 
-@Entity({ name: 'tb_estabelecimento' })
+@Entity({ name: 'tb_estabelecimentos' })
 export class Estabelecimento {
   @PrimaryGeneratedColumn()
   id: number;
@@ -17,9 +16,9 @@ export class Estabelecimento {
   categoria: string;
 
   @IsNotEmpty()
-  @Column({ length: 100, nullable: false })
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   taxa_entrega: number;
 
-  @OneToMany(() => Pedidos, (pedido) => pedido.estabelecimento)
-  pedido: Pedidos[];
+  @OneToMany(() => Pedido, (pedido) => pedido.estabelecimento)
+  pedido: Pedido[];
 }
