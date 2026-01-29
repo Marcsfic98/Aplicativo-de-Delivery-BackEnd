@@ -16,6 +16,8 @@ import { Usuario } from '../entities/usuario.entity';
 import { UsuarioService } from '../services/usuario.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
+import { CreateUsuarioDto } from '../dto/create-usuario.dto';
+import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 
 @ApiTags('Usuário')
 @Controller('/usuarios')
@@ -46,17 +48,19 @@ export class UsuarioController {
 
   @Post('/cadastrar')
   @HttpCode(HttpStatus.CREATED)
-  async create(@Body() usuario: Usuario): Promise<Usuario> {
-    return this.usuarioService.create(usuario);
+  async create(@Body() usuarioDto: CreateUsuarioDto): Promise<Usuario> {
+    return this.usuarioService.create(usuarioDto as Usuario);
   }
 
   @UseGuards(JwtAuthGuard)
   @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
   async update(
-    @Body() usuario: Usuario,
+    @Body() usuarioDto: UpdateUsuarioDto,
   ): Promise<{ mensagem: string; usuario: Usuario }> {
-    const usuarioAtualizado = await this.usuarioService.update(usuario);
+    const usuarioAtualizado = await this.usuarioService.update(
+      usuarioDto as Usuario,
+    );
 
     return {
       mensagem: 'usuario atualizado',

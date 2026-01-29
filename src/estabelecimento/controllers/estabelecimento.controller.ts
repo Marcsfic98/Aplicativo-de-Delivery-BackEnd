@@ -15,6 +15,8 @@ import { Estabelecimento } from '../entities/estabelecimento.entity';
 import { EstabelecimentoService } from '../services/estabelecimento.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
+import { CreateEstabelecimentoDto } from '../dto/create-estabelecimento.dto';
+import { UpdateEstabelecimentoDto } from '../dto/update-estabelecimento.dto';
 
 @ApiTags('Estabelecimento')
 @Controller('/estabelecimentos')
@@ -47,15 +49,23 @@ export class EstabelecimentoController {
 
   @Post('/cadastrar')
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() esbelecimento: Estabelecimento): Promise<Estabelecimento> {
-    return this.estabelecimentoService.create(esbelecimento);
+  create(
+    @Body() estabelecimentoDto: CreateEstabelecimentoDto,
+  ): Promise<Estabelecimento> {
+    return this.estabelecimentoService.create(
+      estabelecimentoDto as Estabelecimento,
+    );
   }
 
   @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
-  update(@Body() esbelecimento: Estabelecimento): Promise<Estabelecimento> {
-    return this.estabelecimentoService.update(esbelecimento);
+  update(
+    @Body() estabelecimentoDto: UpdateEstabelecimentoDto,
+  ): Promise<Estabelecimento> {
+    return this.estabelecimentoService.update(
+      estabelecimentoDto as Estabelecimento,
+    );
   }
 
   @Delete('/:id')
