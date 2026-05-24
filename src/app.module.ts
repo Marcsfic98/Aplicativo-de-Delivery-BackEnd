@@ -16,7 +16,7 @@ import { ProdService } from './data/services/prod.service';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
-      useClass: ProdService,
+      useClass: process.env.NODE_ENV === 'production' ? ProdService : DevService,
       imports: [ConfigModule],
     }),
     UsuarioModule,
